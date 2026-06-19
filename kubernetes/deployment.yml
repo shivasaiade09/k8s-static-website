@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: transportation-deployment
+  namespace: transportation
+
+spec:
+
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: transportation
+
+  template:
+
+    metadata:
+
+      labels:
+        app: transportation
+
+    spec:
+
+      containers:
+
+      - name: transportation
+
+        image: YOUR_DOCKER_USERNAME/transportation:v1
+
+        imagePullPolicy: Always
+
+        ports:
+
+        - containerPort: 80
